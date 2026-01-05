@@ -13,7 +13,7 @@ int main()
 {
     studenti s1;
     char nome[20];
-    // primo studente
+
     printf("Nome e Cognome(char): ");
     scanf(" %s", &s1.nome_cognome);
     // strcpy(s1.nome_cognome, nome);
@@ -24,7 +24,9 @@ int main()
     printf("Matricila(int): ");
     scanf("%d", &s1.matricola);
 
-    printf("Studente: %s\n", s1.nome_cognome);
+    // stampa
+    //-------------------------------------------------
+    printf("-------------\nStudente: %s\n", s1.nome_cognome);
     printf("Numero Tessera: %d\n", s1.numero_tessera);
     printf("Matricila: %d\n", s1.matricola);
 
