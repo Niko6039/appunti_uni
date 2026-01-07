@@ -31,15 +31,19 @@ int main()
         sprintf(sens[i].cod, "%d", i + 1);
         sens[i].n = rand() % 31;
         sens[i].mis = (float)rand() / (float)(RAND_MAX / MAX);
-        //     indirizzo di sens[i],
-        //               dimensione del sens
-        //
-        //
+        //     indirizzo di sens[i]
+        //     I         dimensione del sens
+        //     I         I              Num di elementi
+        //     I         I              I    puntatore (dove dobbiamo scrivere)
         fwrite(&sens[i], sizeof(SENSORE), 1, fp);
     }
+    // chiusira
     fclose(fp);
+
     printf("Salvataggio Completato!\n");
+    //                  read bit
     fp = fopen("sensori.txt", "rb");
+    // controllo errore
     if (fp == NULL)
     {
         perror("Errore nell'apertura del file (lettura)!\n");
