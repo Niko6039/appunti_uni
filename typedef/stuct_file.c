@@ -16,7 +16,9 @@ int main()
     srand(time(NULL));
     int n_random = MAX;
     FILE *fp;
-    //
+
+    //          aprire / crea il file
+    //          I              tipologia whire in bit
     fp = fopen("sensori.txt", "wb");
     if (fp == NULL)
     {
@@ -41,7 +43,7 @@ int main()
     fclose(fp);
 
     printf("Salvataggio Completato!\n");
-    //                  read bit
+    //                        read bit
     fp = fopen("sensori.txt", "rb");
     // controllo errore
     if (fp == NULL)
@@ -54,6 +56,7 @@ int main()
     {
         printf("Codice: %s - Num: %d - Misura: %.2f\n", lettura.cod, lettura.n, lettura.mis);
     }
+
     fclose(fp);
     return 0;
 }
