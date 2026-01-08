@@ -14,7 +14,6 @@ typedef struct
 int main()
 {
     srand(time(NULL));
-    int n_random = MAX;
     FILE *fp;
 
     //          aprire / crea il file
@@ -27,12 +26,15 @@ int main()
     }
 
     SENSORE sens[MAX];
-    for (int i = 0; i < n_random; i++)
+    for (int i = 0; i < MAX; i++)
     {
         //          array         int   i + 1
         sprintf(sens[i].cod, "%d", i + 1);
+
         sens[i].n = rand() % 31;
+
         sens[i].mis = (float)rand() / (float)(RAND_MAX / MAX);
+
         //     indirizzo di sens[i]
         //     I         dimensione del sens
         //     I         I              Num di elementi
