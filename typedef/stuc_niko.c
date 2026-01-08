@@ -9,3 +9,8 @@ typedef struct
     int n;
     float mis;
 } SENSORE;
+
+int main()
+{
+    return 0;
+}
