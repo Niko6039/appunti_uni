@@ -42,7 +42,7 @@ int main()
         sens[i].n = rand() % 31;
 
         // assegno anche qui un nuemro casuale ma con la virgola
-        sens[i].misura = (float)(rand() / max);
+        sens[i].misura = (float)rand() / (float)(RAND_MAX / max);
 
         //
         fwrite(&sens[i], sizeof(sensore), 1, fl);
@@ -60,9 +60,12 @@ int main()
     }
 
     sensore lettura;
-    while (fread(&lettura, sizeof(sensore), 1, fl) == 1)
+    // Legge il file: passiamo l'indirizzo della variabile dove salvare i dati (&lettura),
+    // specifichiamo la dimensione della struttura (sizeof), quanti elementi
+    // leggere alla volta (1) e il puntatore al file (fl).
+    while (fread(&lettura, sizeof(sensore), 1, fl))
     {
-        printf("Codice: %s - Num: %d - Misura: %.2f\n", lettura.cod, lettura.n, lettura.misura);
+        printf("Codice: %s - Num: %d - Misura: %.2f \n", lettura.cod, lettura.n, lettura.misura);
     }
     fclose(fl);
     return 0;
