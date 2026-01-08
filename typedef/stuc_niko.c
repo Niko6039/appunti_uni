@@ -7,7 +7,7 @@
 // aprire un file scriverci e poi leggerlo
 typedef struct
 {
-    cod[30];
+    char cod[30];
     int n;
     float misura;
 } sensore;
@@ -28,6 +28,7 @@ int main()
         // se il programma e' perfettamente funzionante ma c'e' un problema di apertura del file:
         // questo messaggio verra segnato come un errore
         perror("Errore di apertura file!\n");
+        return 1;
     }
 
     sensore sens[max];
@@ -41,8 +42,28 @@ int main()
         sens[i].n = rand() % 31;
 
         // assegno anche qui un nuemro casuale ma con la virgola
-        sens[i].misura = (float)(rand() / (float)(rand() % 31));
+        sens[i].misura = (float)(rand() / max);
+
+        //
+        fwrite(&sens[i], sizeof(sensore), 1, fl);
+    }
+    // file close
+    fclose(fl);
+
+    printf("Salvataggio riuscito!");
+
+    fl = fopen("sensori.txt", "rb");
+    if (fl == NULL)
+    {
+        perror("Errore di apertura file!\n");
+        return 1;
     }
 
+    sensore lettura;
+    while (fread(&lettura, sizeof(sensore), 1, fl) == 1)
+    {
+        printf("Codice: %s - Num: %d - Misura: %.2f\n", lettura.cod, lettura.n, lettura.misura);
+    }
+    fclose(fl);
     return 0;
 }
