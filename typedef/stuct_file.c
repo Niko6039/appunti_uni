@@ -28,7 +28,9 @@ int main()
     SENSORE sens[MAX];
     for (int i = 0; i < MAX; i++)
     {
-        //          array         int   i + 1
+        //       array che si vuole usare
+        //       I            stringa da memorizzare
+        //       I            I      eventuale parametro
         sprintf(sens[i].cod, "%d", i + 1);
 
         sens[i].n = rand() % 31;

@@ -9,7 +9,7 @@ typedef struct
 {
     cod[30];
     int n;
-    float mis;
+    float misura;
 } sensore;
 
 int main()
@@ -33,6 +33,16 @@ int main()
     sensore sens[max];
     for (int i = 0; i < max; i++)
     {
-        }
+        // stiamo assengando al sens[i].cod la stringa i + 1
+        // questa non la stampera a video ma la memorizzera solo nel array
+        sprintf(sens[i].cod, "%d", i + 1);
+
+        // assengo a sens[i].n un numero casuale tra 1 e 30
+        sens[i].n = rand() % 31;
+
+        // assegno anche qui un nuemro casuale ma con la virgola
+        sens[i].misura = (float)(rand() / (float)(rand() % 31));
+    }
+
     return 0;
 }
