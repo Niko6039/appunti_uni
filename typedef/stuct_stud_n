@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+typedef struct
+{
+    char nome[20];
+    char cognome[20];
+    int numero_tessera;
+    int matricola;
+} studenti;
+
+void stdStampa()
+{
+    printf("-------------\nStudente: %s\n", s1.nome_cognome);
+    printf("Numero Tessera: %d\n", s1.numero_tessera);
+    printf("Matricila: %d\n", s1.matricola);
+}
+
+int main()
+{
+    int n;
+    studenti s1;
+    printf("Quanti studenti ci sono?\n");
+    scanf("%d", &n);
+    stdStampa();
+
+    return 0;
+}
