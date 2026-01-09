@@ -22,7 +22,7 @@ int main()
     fp = fopen("sensori.txt", "wb");
     if (fp == NULL)
     {
-        perror("Errore nell'apertura del file (scrittura)!\n");
+        ("Errore nell'apertura del file (scrittura)!\n");
         return 1;
     }
 
