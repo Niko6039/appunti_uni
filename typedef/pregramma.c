@@ -56,27 +56,25 @@ float media(int array[], int verifica)
 {
     int somma = 0, cont = 0;
     float media = 0;
-    for (int i = 0; array[i] > 0; i++)
+    for (int i = 0; i < DIMARRAY; i++)
     {
-        if (verifica == 0)
+        if (array[i] > 0)
         {
-            // pari
-            if (array[i] % 2 == 0)
+            if (verifica == 0)
             {
+                // pari
                 somma += array[i];
                 cont++;
             }
-        }
-        else if (verifica == 1)
-        {
-            // dispari
-            if (array[i] % 2 == 0)
+            else if (verifica == 1)
             {
+                // dispari
                 somma += array[i];
                 cont++;
             }
         }
     }
+    media = somma / cont;
     return media;
 }
 
