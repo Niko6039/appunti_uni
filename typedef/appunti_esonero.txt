@@ -1,0 +1,25 @@
+secondo esonero: (penultimo argomento)
+primo es traccia 
+v[n] n pari
+poi media 
+v[n] dispari > 5 fammi la media 
+sapere che bisogna saper scrivere del programma in c 
+
+secondo: preparare le variabili, per un eventuale programma in futuro
+(ultime lezione prima di natale)
+stuct
+come comporre delle trutture 
+esempio:
+
+Esercizio — Definizione di tipi di dato strutturati in C. 
+Si vuole realizzare un programma in linguaggio C per la gestione di un canile.
+L'obiettivo dell'esercizio è progettare e definire opportuni tipi di dato tramite struct, 
+che verranno successivamente utilizzati da un algoritmo di gestione.
+II canile ospita un certo numero di cani, ognuno dei quali è caratterizzato dalle seguenti informazioni:
+
+Ogni cane ha le seguenti info:
+nome del cane, razza, taglia (piccola, media o grande), età (espressa in anni), elenco delle vaccinazioni effettuate.
+
+Ogni vaccinazione è descritta dai seguenti attributi:
+tipo di azione effettuata (ad esempio: sverminazione, vaccinazione antirabbica, castrazione, ecc.)
+principio attivo patologia coperta data di somministrazione
