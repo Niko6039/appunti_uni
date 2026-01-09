@@ -5,16 +5,16 @@
 #define MAX 30
 int main()
 {
-    int v1[MAX];
-    int v2[MAX];
+    int v1[DIMARRAY];
+    int v2[DIMARRAY];
 
     srand(time(NULL));
 
     printf("Array v1:\n");
-    for (int i = 0; i < MAX; i++)
+    for (int i = 0; i < DIMARRAY; i++)
     {
         v1[i] = rand() % 30 + 1;
-        if (i == MAX - 1)
+        if (i == DIMARRAY - 1)
         {
             printf("%d\n", v1[i]);
         }
@@ -25,15 +25,15 @@ int main()
     }
 
     int *p = v1;
-    for (int i = 0; i < MAX; i++)
+    for (int i = 0; i < DIMARRAY; i++)
     {
         v2[i] = *(p + i);
     }
 
     printf("\nArray v2 (Copiato tramite puntatore):\n");
-    for (int i = 0; i < MAX; i++)
+    for (int i = 0; i < DIMARRAY; i++)
     {
-        if (i == MAX - 1)
+        if (i == DIMARRAY - 1)
         {
             printf("%d\n", v2[i]);
         }
