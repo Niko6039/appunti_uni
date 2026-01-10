@@ -1,65 +1,74 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 
 #define MAX_CANI 100
-#define MAX_STR 50
-#define MAX_VAC 10
+#define MAX_STR   20
+#define MAX_VACCINAZIONI 10
+#define MAX_ADOZIONI 5
 
 typedef enum
 {
-    TAGLIA_PICCOLA = 0,
-    TAGLIA_MEDIA = 1,
-    TAGLIA_GRANDE = 2
-} TAGLIA;
+	TAGLIA_PICCOLA = 0,
+	TAGLIA_MEDIA = 1,
+	TAGLIA_GRANDE = 2
+} Taglia; 
 
 typedef struct
 {
-    int giorno;
-    int mese;
-    int anno;
-} DATA;
+  int giorno;
+  int mese;
+  int anno;
+} Data;
 
 typedef struct
 {
-    char vaccino[MAX_STR];
-    char principio_attivo[MAX_STR];
-    char patologia[MAX_STR];
-    DATA data_somministrazione;
-} VACCINAZIONE;
+  char azione[MAX_STR];	
+  char principio_attivo[MAX_STR];
+  char patologia[MAX_STR];	
+  Data data_somministrazione;
+} Vaccinazione;
 
 typedef struct
 {
-    char nome[MAX_STR];
-    char cognome[MAX_STR];
-    char codice_fiscale[17]; // Aggiunta utile per identificare l'adottante
-} ADOTTANTE;
+  char via[MAX_STR];
+  char citta[MAX_STR];
+  int numero;
+  int cap;	
+} Indirizzo;
+
 
 typedef struct
 {
-    ADOTTANTE adottante;
-    DATA data_adozione;
-    char via[MAX_STR];
-    char citta[MAX_STR];
-} ADOZIONE;
+  char nome[MAX_STR];
+  char cognome[MAX_STR];
+  Indirizzo indirizzo;
+} Adottante;
+
 
 typedef struct
 {
-    char nome[MAX_STR];
-    char razza[MAX_STR];
-    TAGLIA taglia;
-    int anni;
+  Adottante adottante;
+  Data dataAdozione;
+} Adozione;
 
-    // gestione vaccini:
-    VACCINAZIONE vaccinazioni[MAX_VAC];
-    int num_vaccini; // Fondamentale: quanti vaccini ha fatto davvero?
-    bool adottato;
-    ADOZIONE info_adozione;
-} CANE;
 
 typedef struct
 {
-    CANE cani[MAX_CANI];
-    int totale_cani; // Fondamentale: quanti cani ci sono nel canile?
-} CANILE;
+  char nome[MAX_STR];
+  char razza[MAX_STR];
+  
+  Taglia taglia;
+  int anni;
+  
+  Vaccinazione vaccinazioni[MAX_VACCINAZIONI];
+  int numeroVaccinazioni;
+  
+  Adozione adozioni[MAX_ADOZIONI];
+  int numeroAdozioni;
+} Cane;
+
+typedef struct 
+{
+  char nome[MAX_STR];
+  Cane cani[MAX_CANI];
+} Canile;
+
