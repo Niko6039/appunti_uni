@@ -30,6 +30,8 @@ typedef struct
 
 void aggiungiLibro()
 {
+    // wb
+    // rb
     FILE *file = fopen("indice.txt", "a"); // "a" sta per append: aggiunge senza cancellare
     if (file == NULL)
     {

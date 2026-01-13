@@ -4,11 +4,11 @@
 #define MAX 10
 int main()
 {
-    int v[DIMARRAY];
+    int v[MAX];
     int *p = v;
     int sum = 0;
     srand(time(NULL));
-    for (int i = 0; i < DIMARRAY; i++)
+    for (int i = 0; i < MAX; i++)
     {
         v[i] = rand() % 10 + 1;
         sum++;
