@@ -6,3 +6,5 @@
 // diagonale secondaria
 //  • La matrice SCARTO (NxN) che contiene per ogni elemento lo
 // scarto di ogni elemento della matrice C rispetto alla sua media globale
+
+#include <stdio.h>
