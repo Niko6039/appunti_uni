@@ -30,9 +30,8 @@ int main()
     scanf("%lf", &y1);
 
     double risultato = distanza(x1, y1, x2, y2);
-    
+
     printf("\nLa distanza tra A(%.2lf, %.2lf) e B(%.2lf, %.2lf) e': %.4lf\n", x1, y1, x2, y2, risultato);
 
-    
     return 0;
 }

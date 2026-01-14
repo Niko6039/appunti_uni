@@ -10,7 +10,7 @@ typedef struct
     char cod[30];
     int n;
     float misura;
-} sensore;
+} SENSORE;
 
 int main()
 {
@@ -31,7 +31,7 @@ int main()
         return 1;
     }
 
-    sensore sens[max];
+    SENSORE sens[max];
     for (int i = 0; i < max; i++)
     {
         // stiamo assengando al sens[i].cod la stringa i + 1
@@ -45,7 +45,7 @@ int main()
         sens[i].misura = (float)rand() / (float)(RAND_MAX / max);
 
         //
-        fwrite(&sens[i], sizeof(sensore), 1, fl);
+        fwrite(&sens[i], sizeof(SENSORE), 1, fl);
     }
     // file close
     fclose(fl);
@@ -59,11 +59,11 @@ int main()
         return 1;
     }
 
-    sensore lettura;
+    SENSORE lettura;
     // Legge il file: passiamo l'indirizzo della variabile dove salvare i dati (&lettura),
     // specifichiamo la dimensione della struttura (sizeof), quanti elementi
     // leggere alla volta (1) e il puntatore al file (fl).
-    while (fread(&lettura, sizeof(sensore), 1, fl))
+    while (fread(&lettura, sizeof(SENSORE), 1, fl))
     {
         printf("Codice: %s - Num: %d - Misura: %.2f \n", lettura.cod, lettura.n, lettura.misura);
     }

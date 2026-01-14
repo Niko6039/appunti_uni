@@ -21,12 +21,12 @@ int main()
     fp = fopen("sensori.txt", "wb");
     if (fp == NULL)
     {
-        perror("Errore nell'apertura del file (scrittura)!\n");
+        ("Errore nell'apertura del file (scrittura)!\n");
         return 1;
     }
 
-    SENSORE sens[MAX];
-    for (int i = 0; i < MAX; i++)
+    SENSORE sens[DIMARRAY];
+    for (int i = 0; i < DIMARRAY; i++)
     {
         //       array che si vuole usare
         //       I            stringa da memorizzare
@@ -35,7 +35,7 @@ int main()
 
         sens[i].n = rand() % 31;
 
-        sens[i].mis = (float)rand() / (float)(RAND_MAX / MAX);
+        sens[i].mis = (float)rand() / (float)(RAND_MAX / DIMARRAY);
 
         //     indirizzo di sens[i]
         //     I         dimensione del sens
