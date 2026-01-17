@@ -111,6 +111,5 @@ int main()
             printf("Scelta non valida.\n");
         }
     } while (scelta != 0);
-
     return 0;
 }
