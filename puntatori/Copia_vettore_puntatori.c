@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define MAX 30
+#define DIMARRAY 30
 int main()
 {
     int v1[DIMARRAY];
