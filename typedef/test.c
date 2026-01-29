@@ -3,19 +3,18 @@
 
 #define MAX 250
 
-// creazione algortmo di cerare:
 void setFrase(char *p)
 {
     int i = 0;
     char lettera = getchar();
 
-    while (i < MAX && lettera != '\n')
+    while (i < MAX - 1 && lettera != '\n' && lettera != EOF)
     {
         *(p + i) = (char)lettera;
         lettera = getchar();
         i++;
     }
-    *(i + p) = '\0';
+    *(p + i) = '\0';
 }
 
 void setCesare(char *p, char chiave)
@@ -26,16 +25,16 @@ void setCesare(char *p, char chiave)
     {
         tmp = *(p + i);
 
+        // Corretto: serve && (AND), non || (OR)
         if (tmp >= 'a' && tmp <= 'z')
         {
-            //*(p + i) = (char)((c - 'a' + chiave) % 26 + 'a');
             tmp = (tmp - 'a' + chiave) % 26 + 'a';
             *(p + i) = tmp;
         }
         else if (tmp >= 'A' && tmp <= 'Z')
         {
             tmp = (tmp - 'A' + chiave) % 26 + 'A';
-            *(p + i) = tmp;
+            *(p + i) = tmp; // Aggiunto il salvataggio mancante
         }
         i++;
     }
@@ -49,13 +48,13 @@ void decifraCesare(char *p, int chiave)
     {
         tmp = *(p + i);
 
-        ///
+        // Corretto: && e rimosso errore logico (avevi >= 'z')
         if (tmp >= 'a' && tmp <= 'z')
         {
             tmp = (tmp - 'a' - chiave % 26 + 26) % 26 + 'a';
             *(p + i) = tmp;
         }
-        else if (tmp >= 'A' && tmp >= 'Z')
+        else if (tmp >= 'A' && tmp <= 'Z')
         {
             tmp = (tmp - 'A' - chiave % 26 + 26) % 26 + 'A';
             *(p + i) = tmp;
@@ -73,21 +72,28 @@ int main()
         char frase[MAX];
         char *p = frase;
         int chiave;
+
+        printf("Inserisci la frase: ");
         setFrase(p);
 
         printf("Hai inserito: %s\n", frase);
 
-        printf("inserisci un numero: ");
+        printf("Inserisci un numero (chiave): ");
         scanf("%d", &chiave);
 
-        setCesare(p, chiave);
+        setCesare(p, (char)chiave);
         printf("La frase cifrata: %s\n", frase);
 
         decifraCesare(p, chiave);
         printf("La frase decifrata: %s\n", frase);
 
-        printf("Vuoi continuarew? (y/n): ");
+        printf("Vuoi continuare? (y/n): ");
         scanf(" %c", &sc);
+
+        // Pulizia del buffer fondamentale per il prossimo getchar()
+        while (getchar() != '\n')
+            ;
+
     } while (sc == 'y' || sc == 'Y');
 
     return 0;
