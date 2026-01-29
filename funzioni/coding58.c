@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 10
+#define N 4
 
 void casualeMatrice(int m[][N])
 {
@@ -31,44 +31,32 @@ void casualeMatrice(int m[][N])
 void sommaRighe(int m[N][N], int som[N])
 {
     int x = 0;
-    printf("------------SOMMA RIGHE------------\n");
+    printf("----------------------RIGHE----------------------\n");
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
             x = m[i][j] + x;
-            if (j == N - 1)
-            {
-                som[i] = x;
-                printf("Riga %d: %d\t", i + 1, som[i]);
-                if ((i + 1) % 2 == 0)
-                {
-                    printf("\n");
-                }
-            }
         }
+        som[i] = x;
+        float media = (float)som[i] / N;
+        printf("Riga %d: Somma: %d\t|   Media: %.2f \n", i + 1, som[i], media);
     }
 }
 
 void sommaColonne(int m[N][N], int som[N])
 {
     int x = 0;
-    printf("------------SOMMA COLONNE------------\n");
+    printf("---------------------Colonne---------------------\n");
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
             x = m[j][i] + x;
-            if (j == N - 1)
-            {
-                som[i] = x;
-                printf("Colonna %d: %d\t", i + 1, som[i]);
-                if ((i + 1) % 2 == 0)
-                {
-                    printf("\n");
-                }
-            }
         }
+        som[i] = x;
+        float media = (float)som[i] / N;
+        printf("Riga %d: Somma: %d\t|   Media: %.2f \n", i + 1, som[i], media);
     }
 }
 
