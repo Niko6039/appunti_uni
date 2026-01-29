@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main(){
+void main()
+{
     char *p_ch;
-    ch = 'A';
+    char ch = 'A';
+    char ch1 = 'B';
+    char ch2;
 
     printf("L\'indirizzo di p che\': %p \n", &p_ch);
     p_ch = &ch1;

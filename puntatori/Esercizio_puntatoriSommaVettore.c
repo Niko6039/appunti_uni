@@ -16,3 +16,28 @@ int main()
         p = &v[i];
     }
 }
+
+float media(int v[])
+{
+    int som = 0;
+    float media;
+    for (int i = 0; i < MAX; i++)
+    {
+        som = som + v[i];
+    }
+    return media = som / MAX;
+}
+
+float media2(int *v)
+{
+    int som = 0;
+    float media;
+
+    for (int i = 0; i < MAX; i++)
+    {
+        som = *(v + i) + som;
+    }
+
+    return media = som / MAX;
+    //
+}
